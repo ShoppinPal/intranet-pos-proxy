@@ -8,14 +8,14 @@
    - Clone it locally
      - mkdir ~/dev
      - cd ~/dev
-     - git clone https://github.com/ShoppinPal/cloud-pos-proxy.git
+     - git clone https://github.com/ShoppinPal/intranet-pos-proxy.git
    - Make sure that you have the [foreman](https://github.com/ddollar/foreman) gem installed:
      - It requires RubyGems version >= 1.3.6, you can update your version of rubygems via:
          - sudo gem update --system
      - To install foreman, run:
          - sudo gem install foreman
    - With foreman present, simply use:
-     - create a file named **.env** inside the **~/dev/cloud-pos-proxy/** folder and configure the following environment variables:
+     - create a file named **.env** inside the **~/dev/intranet-pos-proxy/** folder and configure the following environment variables:
          - cut & paste
 
                     CLOUDAMQP_URL=amqp://username:password@rabbitmq.host.com/instanceName
