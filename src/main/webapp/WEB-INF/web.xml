@@ -15,32 +15,4 @@
         <param-value>classpath:spring/applicationContext.xml</param-value>
     </context-param>
 
-    <!-- The JAX-RS Jersey Spring Servlet -->
-    <servlet>
-        <servlet-name>jersey-servlet</servlet-name>
-        <servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-        <!-- Turn on GZIP Compression -->
-        <init-param>
-            <param-name>com.sun.jersey.spi.container.ContainerResponseFilters</param-name>
-            <param-value>com.sun.jersey.api.container.filter.GZIPContentEncodingFilter</param-value>
-        </init-param>
-        <init-param>
-            <param-name>com.sun.jersey.config.property.packages</param-name>
-            <param-value>com.sample.router</param-value>
-        </init-param>
-        <init-param>
-            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
-            <param-value>true</param-value>
-        </init-param>
-    </servlet>
-
-    <!--
-      This servlet will process any and all requests at the following url:
-      {protocol}://{server}:{port}/*
-    -->
-	<servlet-mapping>
-		<servlet-name>jersey-servlet</servlet-name>
-		<url-pattern>/*</url-pattern>
-	</servlet-mapping>
-
 </web-app>
