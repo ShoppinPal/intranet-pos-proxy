@@ -1,7 +1,6 @@
 ## Table of Contents
  - [How to run this project](#how-to-run-this-project)
  - [Developing in Eclipse](#developing-in-eclipse)
- - [How to create a brand new Maven/Eclipse project for the Jersey Framework](#how-to-create-a-brand-new-maveneclipse-project-for-the-jersey-framework)
 
 ### How to run this project
  - To run it on your local machine:
@@ -49,9 +48,10 @@
      - cd ~/dev/intranet-pos-proxy && mvn clean install && foreman start
    - Use the following to ping cloud-pos-router:
      - http://localhost:5000/amqp/example
-     - It will post a delegated request for intranet-pos-proxy to fulfill on RabbitMQ:
+     - cloud-pos-router will post a delegated request for intranet-pos-proxy to fulfill via RabbitMQ:
      ![alt text](https://raw.github.com/ShoppinPal/cloud-pos-router/master/sample.png "RabbitMQ Sample Message Snapshot")
-     - intranet-pos-proxy will reach out to RabbitMQ on its own, pick up the request and fulfill it by proxying it to the POS sitting within the intranet and 
+     - intranet-pos-proxy will reach out to RabbitMQ on its own, pick up the request and proxy it to the POS sitting within the intranet. Once it grabs a response, it will place it on a reply queue in RabbitMQ for the router.
+   - You should see a response make it all the way back to whichever client you kicked off the [request](http://localhost:5000/amqp/example) from.
 
 ### Developing in Eclipse
  1. Clone it locally
@@ -60,30 +60,3 @@
    - git clone https://github.com/ShoppinPal/cloud-pos-proxy.git
  2. Import project into Eclipse as an already existing maven project
  3. You can enable direct Git access from within Eclipse if you follow these [instructions](http://stackoverflow.com/questions/7194877/how-make-eclipse-egit-recognize-existing-repository-information-after-update).
-
-### How to create a brand new Maven/Eclipse project for the Jersey Framework
- 1. Start Eclipse
- 2. Right-Click in the Navigator pane
- 3. New > Project > Maven Project
- 4. Next
- 5. Uncheck
-    Use default Workspace location
- 6. Set location to:
-    ~/dev
- 7. Next
- 8. Catalog:
-    All Catalogs
- 9. Filter:
-    webapp
- 10. Select the one with the Artifact Id: maven-archetype-webapp
- 11. Next
- 12. Group Id: com.companyName
- 13. Artifact Id: projectName
- 14. Package: umbrella.project.name (optional - you can leave it empty)
- 15. Finish
- 16. Jersey 1.13 User Guide
-   - Section [11.3.5. Servlet](http://jersey.java.net/nonav/documentation/latest/chapter_deps.html#d4e1712)
-     - Deploying an application on a servlet container requires a deployment dependency with that container.
-     - Using servlet: **com.sun.jersey.spi.container.servlet.ServletContainer** requires a dependency on the jersey-servlet module.
- 17. Add dependencies on jersey-server and jersey-servlet
- 18. Remove junit dependency as its not being used at this point in time.
