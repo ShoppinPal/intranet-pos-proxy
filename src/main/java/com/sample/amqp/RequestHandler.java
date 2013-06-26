@@ -24,17 +24,18 @@ public class RequestHandler {
 	public RequestHandler() {
 	}
 
-	public String handleMessage(RequestDelegate requestDelegate)
+	public ResponseDelegate handleMessage(RequestDelegate requestDelegate)
 	{
 		System.out.println(requestDelegate.toString());
 
-		String output = "No soup for you!"; // default reply
+		ResponseDelegate responseDelegate =
+				new ResponseDelegate(200, null,"No soup for you!"); // default reply
 
 		// do some work here to talk with your POS by leveraging
 		// the data in the RequestDelegate object and get some output 
 
 		// post back the reply to RabbitMQ
-		return output;
+		return responseDelegate;
 	}
 
 }

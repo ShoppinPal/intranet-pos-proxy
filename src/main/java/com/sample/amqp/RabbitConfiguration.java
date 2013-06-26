@@ -21,14 +21,12 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import org.springframework.amqp.core.AmqpAdmin;
-import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.support.converter.JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
-import org.springframework.amqp.support.converter.SimpleMessageConverter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -91,8 +89,8 @@ public class RabbitConfiguration {
      * @return
      */
     @Bean
-    public MessageConverter asymmetricMessageConverter() {
-    	return new AsymmetricMessageConverter(new JsonMessageConverter(), new SimpleMessageConverter(), MessageProperties.CONTENT_TYPE_TEXT_PLAIN);
+    public MessageConverter jsonMessageConverter() {
+    	return new JsonMessageConverter();
     }
 
     private static String getEnvOrThrow(String name) {

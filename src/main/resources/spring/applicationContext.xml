@@ -15,7 +15,7 @@
 	<listener-container
 	    concurrency="5"
 		connection-factory="connectionFactory"
-		message-converter="asymmetricMessageConverter"
+		message-converter="jsonMessageConverter"
 		xmlns="http://www.springframework.org/schema/rabbit">
 		<listener ref="requestHandler" method="handleMessage" queue-names="#{requestQueue.name}" />
 	</listener-container>
