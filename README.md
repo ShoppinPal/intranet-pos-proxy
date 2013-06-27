@@ -2,6 +2,8 @@
  - [How to run this project](#how-to-run-this-project)
  - [Developing in Eclipse](#developing-in-eclipse)
 
+![alt text](https://raw.github.com/ShoppinPal/intranet-pos-router/master/architecture.png "Architecture")
+
 ### How to run this project
  - To run it on your local machine:
    - Clone it locally
