@@ -54,6 +54,7 @@
      ![alt text](https://raw.github.com/ShoppinPal/cloud-pos-router/master/sample.png "RabbitMQ Sample Message Snapshot")
      - intranet-pos-proxy will reach out to RabbitMQ on its own, pick up the request and proxy it to the POS sitting within the intranet. Once it grabs a response, it will place it on a reply queue in RabbitMQ for the router.
    - You should see a response make it all the way back to whichever client you kicked off the [request](http://localhost:5000/amqp/example) from.
+     ![alt text](https://raw.github.com/ShoppinPal/intranet-pos-proxy/master/sample.png "RabbitMQ Sample Message Snapshot")
      ![alt text](https://raw.github.com/ShoppinPal/intranet-pos-proxy/master/default_response.png "Default Reply")
 
 ### Developing in Eclipse
